@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
 import './InputPassword.css'
 
@@ -9,7 +9,7 @@ class InputPassword extends Component {
         super(props)
         this.state = {
             isCurrentPassword: null,
-            valuePassword: '',
+            password: '',
             minLength: this.props.minLength || 0,
             maxLength: this.props.maxLength || 10
         }
@@ -44,9 +44,9 @@ class InputPassword extends Component {
 
     render() {
         return (
-            <div className={ROOT_CLASS}>
+            <Fragment>
                 { this.renderInput() }
-            </div>
+            </Fragment>
         )
     }
 }

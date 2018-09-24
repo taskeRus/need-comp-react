@@ -31,9 +31,9 @@ class App extends Component {
 					list={this.state.list}
 				/> */}
 				<Input
-					type={'text'}
-					placeholder={'Password'}
-					getText={this.password}
+					type={'tel'}
+					placeholder={'Email'}
+					getTel={this.password}
 				/>
 			</div>
 		)

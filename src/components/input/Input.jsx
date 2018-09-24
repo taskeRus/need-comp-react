@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
 import InputPassword from './input-password/InputPassword'
 import InputText from './input-text/InputText'
+import InputEmail from './input-email/InputEmail'
+import InputTel from './input-tel/InputTel'
 
 import './Input.css'
 
@@ -22,6 +24,14 @@ class Input extends Component {
         this.props.getText ? this.props.getText(value) : null
     }
 
+    changeEmailInput = (value) => {
+        this.props.getEmail ? this.props.getEmail(value) : null
+    }
+
+    changeTelInput = (value) => {
+        this.props.getTel ? this.props.getTel(value) : null
+    }
+
     renderInput = () => {
         let inputField
 
@@ -33,7 +43,7 @@ class Input extends Component {
                         changeTextInput={this.changeTextInput}
                         placeholder={this.props.placeholder}
                     />
-                break;
+                break
             case 'password':
                 inputField =
                     <InputPassword
@@ -41,8 +51,27 @@ class Input extends Component {
                         type={this.props.type}
                         placeholder={this.props.placeholder}
                     />
+                break
+            case 'email':
+                inputField =
+                    <InputEmail
+                        type={this.props.type}
+                        placeholder={this.props.placeholder}
+                        changeEmailInput={this.changeEmailInput}
+                    />
+                break
+            case 'tel':
+                inputField =
+                    <InputTel
+                        type={this.props.type}
+                        placeholder={this.props.placeholder}
+                        changeTelInput={this.changeTelInput}
+                    />
+                break
             default:
-                break;
+                inputField =
+                    <h1>Данный тип не поддерживается</h1>
+                break
         }
 
         return inputField
@@ -50,9 +79,9 @@ class Input extends Component {
 
     render() {
         return (
-            <div className={ROOT_CLASS}>
+            <Fragment>
                 { this.renderInput() }
-            </div>
+            </Fragment>
         )
     }
 }

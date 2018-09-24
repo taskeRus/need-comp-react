@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
 import './InputText.css'
 
@@ -28,9 +28,9 @@ class InputText extends Component {
 
     render() {
         return (
-            <div className={ROOT_CLASS}>
+            <Fragment>
                 { this.renderInput() }
-            </div>
+            </Fragment>
         )
     }
 }
