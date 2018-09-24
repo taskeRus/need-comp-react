@@ -51,9 +51,7 @@ class Select extends Component {
                 { this.state.isOpen ?
                     <div 
                         className={`${ROOT_CLASS}__select-list`} 
-                        ref={(element) => {
-                            this.dropdownMenu = element
-                        }}
+                        ref={el => this.dropdownMenu = el}
                     >
                         { this.props.list.map((el, i) => (
                             <div 

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+
 import Select from './components/select/Select'
+import Input from './components/input/Input'
 
 class App extends Component {
 	state = {
@@ -9,19 +11,29 @@ class App extends Component {
 			'c',
 			'd',
 			'e'
-		]
+		],
+		name: 'select-list'
 	}
 
 	choosenItem = (el) => {
 	}
 
+	password = (pass) => {
+		console.log(pass)
+	}
+
 	render() {
 		return (
 			<div className="App">
-				<Select 
+				{/* <Select
 					choosenItem={this.choosenItem}
-					name={'select-list'}
+					name={this.state.name}
 					list={this.state.list}
+				/> */}
+				<Input
+					type={'text'}
+					placeholder={'Password'}
+					getText={this.password}
 				/>
 			</div>
 		)
